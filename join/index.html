@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Multi 21 · League invite</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      .code {
+        margin: 8px 0 0;
+        font: 600 40px/1.2 ui-monospace, Menlo, monospace;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+      }
+      .open {
+        display: block;
+        margin: 24px 0 8px;
+        padding: 16px;
+        border-radius: 14px;
+        background: var(--accent);
+        color: var(--bg);
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+      }
+      .stores {
+        margin: 8px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .stores li {
+        padding: 12px 0;
+        border-top: 1px solid var(--line);
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      A league invite shared from the app: /join/?c=K7PM2X. Opens the app on its join screen
+      (multi21://join/<code>), shows the code to type in by hand, and where to get the app.
+      Nothing is stored or tracked. GitHub Pages can't serve the files that would let the
+      link open the app by itself, so it takes one tap.
+    -->
+    <main>
+      <div class="wordmark">MULTI <span>21</span></div>
+      <section>
+        <div class="label" data-t="label"></div>
+        <h1 data-t="title"></h1>
+        <div id="invite">
+          <p data-t="body"></p>
+          <div class="label" data-t="codeLabel"></div>
+          <div class="code" id="code"></div>
+          <a class="open" id="open" data-t="open"></a>
+          <p class="muted" data-t="manual"></p>
+        </div>
+        <p id="invalid" data-t="invalid" hidden></p>
+        <h2 data-t="noApp"></h2>
+        <ul class="stores">
+          <li data-t="appStore"></li>
+          <li>
+            <a href="https://play.google.com/store/apps/details?id=com.multi21.app" data-t="play"></a>
+          </li>
+        </ul>
+      </section>
+      <footer>© 2026 Multi 21 · <a href="../privacy.html" data-t="privacy"></a></footer>
+    </main>
+    <script>
+      const TEXT = {
+        en: {
+          label: 'League invite',
+          title: "You're invited to a Multi 21 league",
+          body: 'Open the invite in the app to see the league and ask to join.',
+          codeLabel: 'League code',
+          open: 'Open in Multi 21',
+          manual:
+            "If the app doesn't open: in Multi 21, go to Leagues → Join with a code and type the code above.",
+          invalid: 'This link has no league code. Ask your friend to share it again.',
+          noApp: "Don't have Multi 21 yet?",
+          appStore: 'App Store: coming soon',
+          play: 'Google Play',
+          privacy: 'Privacy',
+        },
+        tr: {
+          label: 'Lig daveti',
+          title: 'Bir Multi 21 ligine davet edildin',
+          body: 'Ligi görmek ve katılma isteği göndermek için daveti uygulamada aç.',
+          codeLabel: 'Lig kodu',
+          open: "Multi 21'de aç",
+          manual:
+            'Uygulama açılmazsa: Multi 21 → Ligler → Kodla katıl bölümüne yukarıdaki kodu yaz.',
+          invalid: 'Bu bağlantıda lig kodu yok. Arkadaşından tekrar paylaşmasını iste.',
+          noApp: 'Multi 21 telefonunda yok mu?',
+          appStore: 'App Store: yakında',
+          play: 'Google Play',
+          privacy: 'Gizlilik',
+        },
+        de: {
+          label: 'Liga-Einladung',
+          title: 'Du bist zu einer Multi 21 Liga eingeladen',
+          body: 'Öffne die Einladung in der App, um die Liga zu sehen und den Beitritt anzufragen.',
+          codeLabel: 'Liga-Code',
+          open: 'In Multi 21 öffnen',
+          manual:
+            'Falls die App nicht aufgeht: In Multi 21 unter Ligen → Mit Code beitreten den Code oben eingeben.',
+          invalid: 'Dieser Link enthält keinen Liga-Code. Bitte deinen Freund, ihn noch einmal zu teilen.',
+          noApp: 'Noch kein Multi 21?',
+          appStore: 'App Store: bald verfügbar',
+          play: 'Google Play',
+          privacy: 'Datenschutz',
+        },
+      };
+
+      const lang = (navigator.language || 'en').slice(0, 2);
+      const text = TEXT[lang] || TEXT.en;
+      document.documentElement.lang = TEXT[lang] ? lang : 'en';
+      document.querySelectorAll('[data-t]').forEach((el) => {
+        el.textContent = text[el.dataset.t];
+      });
+
+      // A league code (six letters and digits, the dash optional) or an older 32-character token.
+      const raw = new URLSearchParams(location.search).get('c') || '';
+      const code = raw.replace('-', '').toUpperCase();
+      const valid = /^[A-Z0-9]{6}$/.test(code) || /^[0-9a-f]{32}$/.test(raw);
+      const key = /^[0-9a-f]{32}$/.test(raw) ? raw : code;
+
+      if (!valid) {
+        document.getElementById('invite').hidden = true;
+        document.getElementById('invalid').hidden = false;
+      } else {
+        document.getElementById('code').textContent =
+          key.length === 6 ? `${key.slice(0, 3)}-${key.slice(3)}` : '';
+        // Android: an intent opens the app, or Google Play when it isn't installed.
+        const android = /android/i.test(navigator.userAgent);
+        document.getElementById('open').href = android
+          ? `intent://join/${key}#Intent;scheme=multi21;package=com.multi21.app;end`
+          : `multi21://join/${key}`;
+      }
+    </script>
+  </body>
+</html>
