@@ -15,7 +15,7 @@
       </nav>
 
       <section id="en" lang="en">
-        <div class="label">Privacy policy · Effective 7 November 2026</div>
+        <div class="label">Privacy policy · Effective 10 November 2026</div>
         <h1>Multi 21 needs no account. Only friend mode sends data to a server.</h1>
         <p>
           Multi 21 has no ads, no analytics and no tracking. Unless you turn on friend mode, we
@@ -37,9 +37,10 @@
         </p>
         <p>
           The server then stores: an anonymous account ID, your nickname and user code, the
-          leagues you create or join, invites, the people you block, reports you send, and your
-          complete calls for this season's races while you are in a league (pole, podium,
-          fastest lap and your favourite's finish). Your points are worked out on each phone, not
+          leagues you create or join, join requests, the people you block, reports you send,
+          your phone's push token if you allow league notifications, and your complete calls for
+          this season's races while you are in a league (pole, podium, fastest lap and your
+          favourite's finish). Your points are worked out on each phone, not
           on the server.
         </p>
         <p>
@@ -51,7 +52,7 @@
         </p>
         <p>
           Delete it at any time with Settings → Leagues → Profile → Delete account: your
-          nickname, memberships, invites, blocks and calls are deleted from the server, and so
+          nickname, memberships, join requests, blocks, push tokens and calls are deleted from the server, and so
           are the leagues you own. A report you sent or received is kept (its reason and the
           nickname or league name at the time) but no longer linked to any account. If you remove
           the app before deleting your account, the account can no longer be reached, so please
@@ -75,7 +76,15 @@
         <h2>Notifications</h2>
         <p>
           Race reminders are scheduled on your phone from the race calendar. No notification
-          service or server is involved, and no device identifier leaves your phone.
+          service or server is involved for them.
+        </p>
+        <p>
+          League notifications (join requests, approvals and new members) come from our server.
+          If you're in friend mode and allow them, the server keeps your phone's push token (an
+          identifier from Expo for sending notifications to this app on this phone) and the
+          app's language. Expo passes each notification to Apple or Google to deliver. Turn them
+          off under Settings → League notifications: the token is deleted from the server. It
+          also goes when you delete your account.
         </p>
         <h2>Feedback</h2>
         <p>
@@ -100,7 +109,7 @@
       </section>
 
       <section id="tr" lang="tr">
-        <div class="label">Gizlilik politikası · Yürürlük: 7 Kasım 2026</div>
+        <div class="label">Gizlilik politikası · Yürürlük: 10 Kasım 2026</div>
         <h1>Multi 21 hesap gerektirmez. Sunucuya yalnızca arkadaş modu veri gönderir.</h1>
         <p>
           Multi 21'de reklam, analiz ya da takip yoktur. Arkadaş modunu açmadıkça biz
@@ -123,8 +132,9 @@
         </p>
         <p>
           Bundan sonra sunucuda şunlar saklanır: anonim bir hesap kimliği, takma adın ve
-          kullanıcı kodun, kurduğun ya da katıldığın ligler, davetler, engellediğin kişiler,
-          gönderdiğin şikayetler ve bir ligdeyken bu sezonun yarışları için yaptığın tam
+          kullanıcı kodun, kurduğun ya da katıldığın ligler, katılma istekleri, engellediğin
+          kişiler, gönderdiğin şikayetler, lig bildirimlerine izin verdiysen telefonunun bildirim
+          adresi ve bir ligdeyken bu sezonun yarışları için yaptığın tam
           tahminler (pol, podyum, en hızlı tur ve favorinin bitirdiği sıra). Puanların sunucuda
           değil, her telefonda hesaplanır.
         </p>
@@ -137,7 +147,7 @@
         </p>
         <p>
           Bunları dilediğin zaman Ayarlar → Ligler → Profil → Hesabı sil ile silebilirsin: takma
-          adın, üyeliklerin, davetlerin, engellerin ve tahminlerin sunucudan silinir; sahibi
+          adın, üyeliklerin, katılma isteklerin, engellerin, bildirim adreslerin ve tahminlerin sunucudan silinir; sahibi
           olduğun ligler de silinir. Gönderdiğin ya da hakkında gönderilen bir şikayet (sebebi ve
           o andaki takma ad ya da lig adı) saklanır, ama artık hiçbir hesaba bağlı değildir.
           Hesabını silmeden uygulamayı kaldırırsan hesaba bir daha ulaşılamaz; bu yüzden önce
@@ -160,8 +170,16 @@
         </p>
         <h2>Bildirimler</h2>
         <p>
-          Yarış hatırlatıcıları yarış takviminden telefonunda kurulur. Hiçbir bildirim servisi ya
-          da sunucu kullanılmaz ve hiçbir cihaz kimliği telefonundan çıkmaz.
+          Yarış hatırlatıcıları yarış takviminden telefonunda kurulur. Bunlar için hiçbir
+          bildirim servisi ya da sunucu kullanılmaz.
+        </p>
+        <p>
+          Lig bildirimleri (katılma istekleri, onaylar ve yeni üyeler) sunucumuzdan gelir.
+          Arkadaş modundaysan ve izin verirsen sunucu telefonunun bildirim adresini (Expo'nun bu
+          uygulamaya bu telefonda bildirim gönderebilmek için verdiği bir kimlik) ve uygulamanın
+          dilini saklar. Expo her bildirimi iletilmesi için Apple'a ya da Google'a verir. Ayarlar
+          → Lig bildirimleri ile kapatabilirsin; bildirim adresi sunucudan silinir. Hesabını
+          sildiğinde de silinir.
         </p>
         <h2>Geri bildirim</h2>
         <p>
@@ -187,7 +205,7 @@
       </section>
 
       <section id="de" lang="de">
-        <div class="label">Datenschutzerklärung · Gültig ab 7. November 2026</div>
+        <div class="label">Datenschutzerklärung · Gültig ab 10. November 2026</div>
         <h1>Multi 21 braucht kein Konto. Nur der Freundesmodus sendet Daten an einen Server.</h1>
         <p>
           Multi 21 hat keine Werbung, keine Analyse und kein Tracking. Solange du den
@@ -211,8 +229,9 @@
         </p>
         <p>
           Der Server speichert dann: eine anonyme Konto-ID, deinen Spitznamen und Nutzercode, die
-          Ligen, die du gründest oder denen du beitrittst, Einladungen, die Personen, die du
-          blockierst, Meldungen, die du sendest, und deine vollständigen Tipps für die Rennen
+          Ligen, die du gründest oder denen du beitrittst, Beitrittsanfragen, die Personen, die
+          du blockierst, Meldungen, die du sendest, den Push-Token deines Handys, wenn du
+          Liga-Mitteilungen erlaubst, und deine vollständigen Tipps für die Rennen
           dieser Saison, solange du in einer Liga bist (Pole, Podium, schnellste Runde und die
           Platzierung deines Lieblingsfahrers). Deine Punkte werden auf jedem Handy berechnet,
           nicht auf dem Server.
@@ -226,7 +245,7 @@
         </p>
         <p>
           Löschen kannst du sie jederzeit unter Einstellungen → Ligen → Profil → Konto löschen:
-          Spitzname, Mitgliedschaften, Einladungen, Blockierungen und Tipps werden vom Server
+          Spitzname, Mitgliedschaften, Beitrittsanfragen, Blockierungen, Push-Tokens und Tipps werden vom Server
           gelöscht, ebenso die Ligen, die dir gehören. Eine Meldung, die du gesendet oder erhalten
           hast, bleibt erhalten (der Grund und der damalige Spitzname oder Liganame), ist aber
           mit keinem Konto mehr verknüpft. Entfernst du die App, bevor du dein Konto löschst, ist
@@ -250,9 +269,16 @@
         </p>
         <h2>Mitteilungen</h2>
         <p>
-          Rennerinnerungen werden aus dem Rennkalender auf deinem Handy eingeplant. Es ist kein
-          Mitteilungsdienst und kein Server beteiligt, und keine Gerätekennung verlässt dein
-          Handy.
+          Rennerinnerungen werden aus dem Rennkalender auf deinem Handy eingeplant. Dafür ist
+          kein Mitteilungsdienst und kein Server beteiligt.
+        </p>
+        <p>
+          Liga-Mitteilungen (Beitrittsanfragen, Freigaben und neue Mitglieder) kommen von unserem
+          Server. Bist du im Freundesmodus und erlaubst sie, speichert der Server den Push-Token
+          deines Handys (eine Kennung von Expo, um dieser App auf diesem Handy Mitteilungen zu
+          senden) und die Sprache der App. Expo gibt jede Mitteilung zur Zustellung an Apple
+          oder Google weiter. Abschalten kannst du sie unter Einstellungen → Liga-Mitteilungen:
+          Der Token wird vom Server gelöscht. Er wird auch gelöscht, wenn du dein Konto löschst.
         </p>
         <h2>Feedback</h2>
         <p>
